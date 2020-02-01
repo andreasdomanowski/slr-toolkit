@@ -1,1 +1,0 @@
-mvn -f ./plugins/de.tudresden.slr.parent/pom.xml clean verify
