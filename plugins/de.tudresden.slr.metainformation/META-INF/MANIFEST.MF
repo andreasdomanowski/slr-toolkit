@@ -27,3 +27,5 @@ Bundle-ActivationPolicy: lazy
 Export-Package: de.tudresden.slr.metainformation,
  de.tudresden.slr.metainformation.data,
  de.tudresden.slr.metainformation.util
+Import-Package: javax.xml.bind,
+ javax.xml.bind.annotation
