@@ -1,5 +1,8 @@
 package de.tudresden.slr.metainformation;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -16,21 +19,25 @@ public class MetainformationActivator extends AbstractUIPlugin {
 
 	// The shared instance
 	private static MetainformationActivator plugin;
-	
+
 	// Currently active metainformation object
 	private static SlrProjectMetainformation metainformation;
 	// Filepath to the currently active metainformation object
 	private static String currentFilepath = null;
-	
+
 	/**
 	 * The constructor
+	 * @throws JAXBException 
 	 */
-	public MetainformationActivator() {
+	public MetainformationActivator() throws JAXBException {
+		JAXBContext context = JAXBContext.newInstance(MetainformationActivator.class.getPackageName(), MetainformationActivator.class.getClassLoader());
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
+	 * 
+	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.
+	 * BundleContext)
 	 */
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
@@ -39,7 +46,9 @@ public class MetainformationActivator extends AbstractUIPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
+	 * 
+	 * @see
+	 * org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
 	 */
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
@@ -56,8 +65,8 @@ public class MetainformationActivator extends AbstractUIPlugin {
 	}
 
 	/**
-	 * Returns an image descriptor for the image file at the given
-	 * plug-in relative path
+	 * Returns an image descriptor for the image file at the given plug-in relative
+	 * path
 	 *
 	 * @param path the path
 	 * @return the image descriptor
@@ -72,6 +81,7 @@ public class MetainformationActivator extends AbstractUIPlugin {
 
 	/**
 	 * Sets the currently active metainformation object.
+	 * 
 	 * @param metainformation
 	 */
 	public static void setMetainformation(SlrProjectMetainformation metainformation) {

@@ -10,12 +10,4 @@
 		<version>0.3.3-SNAPSHOT</version>
 		<relativePath>../de.tudresden.slr.parent/pom.xml</relativePath>
 	</parent>
-	<dependencies>
-		<dependency>
-			<groupId>org.apache.servicemix.bundles</groupId>
-			<artifactId>org.apache.servicemix.bundles.xstream</artifactId>
-			<version>1.4.10_1</version>
-		</dependency>
-
-	</dependencies>
 </project>
